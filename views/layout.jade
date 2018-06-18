@@ -1,0 +1,108 @@
+doctype
+html
+  head
+    title #{title}
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/menu.css')
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  body
+    header
+      h1 ODN Transaction Monitoring System
+
+      h3
+      p
+       | <a href="http://localhost:3000/allusers">All Users</a> |
+       | <a href="http://localhost:3000/alltransactions">All Transactions</a> |
+       | <a href="http://localhost:3000/singleuserquery">Single User</a> |
+       | <a href="http://localhost:3000/singletransactionqyery">Single Transaction</a> |<br>
+       | <a href="http://localhost:3000/rule?vaID=VA-OSS">VA-OSS</a> |
+       | <a href="http://localhost:3000/rule?vaID=VA-OSB">VA-OSB</a> |
+       | <a href="http://localhost:3000/rule?vaID=VA-OSD">VA-OSD</a> |
+       | <a href="http://localhost:3000/rule?vaID=VA-OSM">VA-OSM</a> |
+       | <a href="http://localhost:3000/rule?vaID=VA-OMB">VA-OMB</a> |
+       | <a href="http://localhost:3000/rule?vaID=VA-OMD">VA-OMD</a> |
+       | <a href="http://localhost:3000/rule?vaID=VA-OMM">VA-OMM</a> |
+       | <a href="http://localhost:3000/rule?vaID=VA-BSS">VA-BSS</a> |
+       | <a href="http://localhost:3000/rule?vaID=VA-BSB">VA-BSB</a> |
+       | <a href="http://localhost:3000/rule?vaID=VA-BSD">VA-BSD</a> |
+      p
+       ul#menu
+          li
+           a(href='#') SU rules
+          li
+           a(href='#') VA rules
+             ul
+               li
+                 a(href='#') L'equipe
+               li
+                 a(href='#') Histoire
+               li
+                 a(href='#') Vision
+           li
+                a(href='#') VO rules
+                 ul
+                   li
+                     a(href='#') Meubles salon
+                   li
+                     a(href='#') Belle Table
+                   li
+                     a(href='#') Petite chaise 
+                   li
+                     a(href='#') Jardin
+                   li
+                      a(href='#') autres
+           li
+            a(href='#') Contact
+                ul
+                 li
+                   a(href='#') En ligne
+                 li
+                   a(href='#') Adresse
+                 li
+                   a(href='#') autres
+       ul#menu
+          li
+           a(href='#') Accueil
+          li
+           a(href='#') A propos
+             ul
+               li
+                 a(href='#') L'equipe
+               li
+                 a(href='#') Histoire
+               li
+                 a(href='#') Vision
+           li
+                a(href='#') Produits
+                 ul
+                   li
+                     a(href='#') Meubles salon
+                   li
+                     a(href='#') Belle Table
+                   li
+                     a(href='#') Petite chaise 
+                   li
+                     a(href='#') Jardin
+                   li
+                      a(href='#') autres
+           li
+            a(href='#') Contact
+                ul
+                 li
+                   a(href='#') En ligne
+                 li
+                   a(href='#') Adresse
+                 li
+                   a(href='#') autres
+
+    .container
+      .main-content
+        block content
+      .sidebar
+        block sidebar
+    footer.container-fluid.text-center
+      h5 Copyright Nowall 2018

@@ -1,0 +1,50 @@
+extend layout
+block content
+  h3
+    | #{message}
+  .row
+    .col-xs-6
+      p
+        b PERSONAL <br>
+        |  FIRST NAME :- #{users[0].first_name} <br>
+        |  LAST NAME :- #{users[0].last_name} <br>
+        |  DATE OF BIRTH :- #{users[0].date_of_birth} <br>
+        |  NATIONALITY :- #{users[0].nationality} <br>
+        |  GENDER :- #{users[0].gender} <br>
+        |  INDUSTRY :- #{users[0].industry} <br>
+        |  OCCUPATION :- #{users[0].work_type} <br>
+        |  TAX ID :- #{users[0].tax_id} <br>
+    .col-xs-6
+      p
+        b ADDRESS <br>
+        |  Address 1 :- #{users[0].address_line_1} <br>
+        |  Address 2 :- #{users[0].address_line_2} <br>
+        |  City :- #{users[0].city } <br>
+        |  State :- #{users[0].state} <br>
+        |  Postal Code :- #{users[0].postal_code} <br>
+        |  Country :- #{users[0].country_of_residence} <br>
+        |  Contact number :- #{users[0].contact_number} <br>
+        |  Email Address :- #{users[0].img_selfie} <br>
+        |  Utility Bill :- #{users[0].img_selfie} <br><br>
+        <br>
+
+  .row
+    .col-xs-6
+      p
+        b DOCUMENT <br>
+        |  ID TYPE :- #{users[0].document_type} <br>
+        |  ID NUMBER :- #{users[0].document_number} <br>
+        |  ID EXPIRY :- #{users[0].document_expiry } <br>
+        |  ID FRONT URL :- #{users[0].img_front} <br>
+        |  SELFIE URL :- #{users[0].img_selfie} <br>
+
+
+    .col-xs-6
+      p
+        b FINANCE <br>
+        |  Purpose of Action :- #{users[0].purpose_of_action} <br>
+        |  Planned Investment Amount :- #{users[0].planned_investment} <br>
+
+
+
+block sidebar

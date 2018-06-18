@@ -1,0 +1,75 @@
+extend layout
+block content
+  h3
+    |  #{message}
+  p
+
+
+   table(style='width:100%')
+    thead
+      tr
+        th(style='width:6%') User ID
+        th(style='width:6%') First Name
+        th(style='width:6%') Middle Name
+        th(style='width:6%') Last Name
+        th(style='width:7%') Date of Birth
+        th(style='width:8%') Nationality
+        th(style='width:6%') Country
+        th(style='width:7%') Date Created
+        th(style='width:4%') gender
+        th(style='width:7%') Address Line 1
+        th(style='width:6%') City
+        th(style='width:6%') State
+        th(style='width:6%') Postal Code
+        th(style='width:8%') Document Type
+        th(style='width:8%') Document Number
+        th(style='width:8%') KYC Flag
+        th(style='width:8%') Odin Holding
+        th(style='width:6%') Odin Points
+        th(style='width:7%') Work Address
+        th(style='width:7%') Work Type
+       tbody
+        - for( var i = 0, len = users.length; i < len; i++ ) {
+           tr
+             td
+                <a href="http://localhost:3000/userid?id=#{users[i].user_id}">#{users[i].user_id} </a>
+             td
+               .field1= users[i].first_name
+             td
+               .field1= users[i].middle_name
+             td
+               .field1= users[i].last_name
+              td
+               .field1= moment(users[i].date_of_birth).format('DD.MM.YYYY')
+             td
+               .field1= users[i].nationality
+             td
+               .field1= users[i].country_of_residence
+             td
+               .field1= moment(users[i].created_at).format('DD.MM.YYYY')
+             td
+               .field1= users[i].gender
+             td
+               .field1= users[i].address_line_1
+              td
+               .field1= users[i].city
+             td
+               .field1= users[i].state
+             td
+               .field1= users[i].postal_code
+             td
+               .field1= users[i].document_type
+             td
+               .field1= users[i].document_number
+             td
+               .field1= users[i].kyc_flag
+             td
+               .field1= users[i].odin_holding
+             td
+               .field1= users[i].odin_points
+             td
+               .field1= users[i].work_address
+             td
+               .field1= users[i].work_type
+        -    }
+block sidebar

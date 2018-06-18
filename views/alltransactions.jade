@@ -1,0 +1,55 @@
+extend layout
+block content
+  h3
+    | #{message}
+  p
+   table
+    thead
+      tr
+        th ID
+        th Transaction Hash
+        th Amount
+        th Odin Token equivalent
+        th Token
+        th To Address
+        th Transaction Timestamp
+        th Status
+        th User ID
+        th From Address
+        th Status Message
+        th Is DB token
+        th is Premium
+       tbody
+        - for( var i = 0, len = users.length; i < len; i++ ) {
+           tr
+             td
+               .field1= users[i].id
+             td
+               .field1= users[i].tx_hash
+             td
+               .field1= users[i].amount
+             td
+               .field1= users[i].odin_token_equivalent
+             td
+               .field1= users[i].token
+              td
+               .field1= users[i].toAddress
+             td
+               .field1= moment(users[i].tx_timestamp).format('DD.MM.YYYY')
+             td
+               .field1= users[i].status
+             td
+               .field1= users[i].user_id
+             td
+               .field1= users[i].fromAddress
+             td
+               .field1= users[i].status_msg
+             td
+               .field1= users[i].is_db_token
+             td
+               .field1= users[i].is_premium
+        -    }
+          
+block sidebar
+
+

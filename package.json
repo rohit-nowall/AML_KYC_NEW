@@ -1,0 +1,13 @@
+{
+  "name": "test_node",
+  "version": "0.0.1",
+  "private": "true",
+  "dependencies": {
+    "express": "3.0.0alpha4",
+    "jade": "^1.0.4",
+    "moment": "^2.22.2",
+    "mysql": "^2.15.0",
+    "nib": "^1.0.4",
+    "stylus": "^0.49.1"
+  }
+}
