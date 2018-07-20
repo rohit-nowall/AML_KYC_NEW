@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>{{ title }}</title>
+
+  <!--<link rel='stylesheet' href='/stylesheets/menu.css'>-->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel='stylesheet' href='/stylesheets/style.css'>
+</head>
+<body>
+
+  <div class="container-fluid mainheader">
+  <div class="jumbotron">
+<div align="center"><a href="http://localhost:3000/"><img src="images/logo.png" alt="logo"></a></div>
+    <div class="container text-center">
+      <h1>ODN Transaction Monitoring System</h1>
+
+    </div>
+
+  <div class="trans">
+    <a href="http://localhost:3000/"> Home </a> |
+    <a href="http://localhost:3000/login_page"> Login </a> |
+    <a href="http://localhost:3000/logout"> Logout </a> |    
+    <a href="http://localhost:3000/singleuserquery"> Single User </a> |
+    <a href="http://localhost:3000/singletransactionquery"> Single Transaction </a><br>
+	<a href="http://localhost:3000/allusers"> All Customers </a> |
+    <a href="http://localhost:3000/alltransactions"> All Transactions </a> |
+    <a href="http://localhost:3000/rulesbrokencustomer"> Rules Broken by customer </a> |
+    <a href="http://localhost:3000/rulesbrokentransaction"> Rules Broken by transaction </a> 
+
+  </div>
+
+  <!--<div class="Chart">
+    <a href="http://localhost:3000/customersAge2"> Customers by age (Criteria) </a> |
+    <a href="http://localhost:3000/gender1"> Gender </a> |
+    <a href="http://localhost:3000/monthlyOpenAccount2"> Monthly Open Account </a> |
+    <a href="http://localhost:3000/occupation2"> Occupation </a> |<br>
+    <a href="http://localhost:3000/nationality2"> Nationality </a> |
+    <a href="http://localhost:3000/recidency2"> Country(Residence) </a> |
+    <a href="http://localhost:3000/aveValueTransMonth2"> Average Value Trans/Month</a> |
+    <a href="http://localhost:3000/allusers"> Average Volumn Trans/Month</a> |<br>
+    <a href="http://localhost:3000/aveValuTransDaily2"> Average Value Trans/Daily</a> |
+    <a href="http://localhost:3000/allusers"> Average Volumn Trans/Daily</a> |
+    <a href="http://localhost:3000/alltransactions"> Time Of Trans </a> |
+    <a href="http://localhost:3000/ethBtcTrans2"> ETH/BTC </a> |
+  </div>-->
+
+
+  <!-- Navigation -->
+
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+      </div>
+      <div class="collapse navbar-collapse" id="myNavbar">
+        <ul class="nav navbar-nav">
+          <!--<li class="active"><a href="#">VA</a></li>
+          <li><a href="#">VL</a></li>-->
+          <div class="dropdown">
+           <button class="dropbtn">OS
+             <i class="fa fa-caret-down"></i>
+           </button>
+             <div class="dropdown-content">
+              <li><a href="http://localhost:3000/rule?vaID=VA-OSS">VA-OSS</a></li>
+              <li><a href="http://localhost:3000/rule?vaID=VA-OSB">VA-OSB</a></li>
+              <li><a href="http://localhost:3000/rule?vaID=VA-OSD">VA-OSD</a></li>
+              <li><a href="http://localhost:3000/rule?vaID=VA-OSM">VA-OSM</a></li>
+              <li><a href="http://localhost:3000/rule?vaID=VO-OSB">VO-OSB</a></li>
+              <li><a href="http://localhost:3000/rule?vaID=VO-OSD">VO-OSD</a></li>
+              <li><a href="http://localhost:3000/rule?vaID=VO-OSM">VO-OSM</a></li>               
+            </div>
+          </div>
+
+          <div class="dropdown">
+           <button class="dropbtn">BS
+             <i class="fa fa-caret-down"></i>
+           </button>
+           <div class="dropdown-content">
+            <li><a href="http://localhost:3000/rule?vaID=VA-BSS">VA-BSS</a></li>
+            <li><a href="http://localhost:3000/rule?vaID=VA-BSB">VA-BSB</a></li>
+            <li><a href="http://localhost:3000/rule?vaID=VA-BSD">VA-BSD</a></li>
+            <li><a href="http://localhost:3000/rule?vaID=VA-BSM">VA-BSM</a></li> 
+            <li><a href="http://localhost:3000/rule?vaID=VO-BSB">VO-BSB</a></li>
+            <li><a href="http://localhost:3000/rule?vaID=VO-BSD">VO-BSD</a></li>
+            <li><a href="http://localhost:3000/rule?vaID=VO-BSM">VO-BSM</a></li> 			
+          </div>
+          </div>
+
+          <div class="dropdown">
+           <button class="dropbtn">BM
+             <i class="fa fa-caret-down"></i>
+           </button>
+             <div class="dropdown-content">
+               <li><a href="http://localhost:3000/rule?vaID=VA-BMB">VA-BMB</a></li>
+               <li><a href="http://localhost:3000/rule?vaID=VA-BMD">VA-BMD</a></li>
+               <li><a href="http://localhost:3000/rule?vaID=VA-BMM">VA-BMM</a></li>
+               <li><a href="http://localhost:3000/rule?vaID=VO-BMB">VO-BMB</a></li>
+               <li><a href="http://localhost:3000/rule?vaID=VO-BMD">VO-BMD</a></li>
+               <li><a href="http://localhost:3000/rule?vaID=VO-BMM">VO-BMM</a></li>
+            </div>
+          </div>
+
+
+          <div class="dropdown">
+           <button class="dropbtn">OC
+             <i class="fa fa-caret-down"></i>
+           </button>
+             <div class="dropdown-content">
+               <li><a href="http://localhost:3000/rule?vaID=VA-OCM">VA-OCM</a></li>              
+
+            </div>
+          </div>
+
+          <div class="dropdown">
+           <button class="dropbtn">OM
+             <i class="fa fa-caret-down"></i>
+           </button>
+             <div class="dropdown-content">
+               <li><a href="http://localhost:3000/rule?vaID=VA-OMB">VA-OMB</a></li>
+               <li><a href="http://localhost:3000/rule?vaID=VA-OMD">VA-OMD</a></li>
+               <li><a href="http://localhost:3000/rule?vaID=VA-OMM">VA-OMM</a></li>
+               <li><a href="http://localhost:3000/rule?vaID=VO-OMB">VO-OMB</a></li>
+               <li><a href="http://localhost:3000/rule?vaID=VO-OMD">VO-OMD</a></li>
+               <li><a href="http://localhost:3000/rule?vaID=VO-OMM">VO-OMM</a></li>
+            </div>
+          </div>
+
+          <div class="dropdown">
+           <button class="dropbtn">BC
+             <i class="fa fa-caret-down"></i>
+           </button>
+             <div class="dropdown-content">
+               <li><a href="http://localhost:3000/rule?vaID=VA-BCM">VA-BCM</a></li>               
+
+            </div>
+          </div>
+
+          <div class="dropdown">
+           <button class="dropbtn">FL
+             <i class="fa fa-caret-down"></i>
+           </button>
+             <div class="dropdown-content">
+               <li><a href="http://localhost:3000/rule?vaID=FL-OSB">FL-OSB</a></li>
+               <li><a href="http://localhost:3000/rule?vaID=FL-OMB">FL-OMB</a></li>
+               <li><a href="http://localhost:3000/rule?vaID=FL-BSB">FL-BSB</a></li>
+
+            </div>
+          </div>
+
+          <!--<div class="dropdown">
+            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">BL</button>
+             <ul class="dropdown-menu">
+               <li ><a href="http://localhost:3000/rule?vaID=BL-OSS">BL-OSS</a></li>
+               <li><a href="http://localhost:3000/rule?vaID=BL-BSS">BL-BSS</a></li>
+
+            </ul>
+          </div>-->
+
+          <div class="dropdown">
+           <button class="dropbtn">BL
+             <i class="fa fa-caret-down"></i>
+           </button>
+             <div class="dropdown-content">
+               <li ><a href="http://localhost:3000/rule?vaID=BL-OSS">BL-OSS</a></li>
+               <li><a href="http://localhost:3000/rule?vaID=BL-BSS">BL-BSS</a></li>
+
+            </div>
+          </div>
+
+          <div class="dropdown">
+           <button class="dropbtn1">Charts
+             <i class="fa fa-caret-down"></i>
+           </button>
+             <div class="dropdown-content">
+               <li><a href="http://localhost:3000/customersAge2">Customers by age</a> </li>
+               <li><a href="http://localhost:3000/gender1">Gender </a> </li>
+               <li><a href="http://localhost:3000/monthlyOpenAccount2">Monthly Open Acc </a> </li>
+               <li><a href="http://localhost:3000/occupation2">Work Type </a> </li>
+               <li><a href="http://localhost:3000/nationality2">Nationality </a> </li>
+               <li><a href="http://localhost:3000/recidency2">Country(Residence) </a> </li>
+               <li><a href="http://localhost:3000/aveVolumnTransMonth2">Ave Volume Trans per Month</a> </li>
+
+               <li><a href="http://localhost:3000/aveValueTransMonth2">Ave Value Trans per Month</a> </li>
+               <li><a href="http://localhost:3000/industry2">Industry</a> </li>
+
+               <!--<li><a href="http://localhost:3000/aveValuTransDaily2">Ave Valu Trans per Day</a> </li>
+               <li><a href="http://localhost:3000/allusers">Ave Volumn Trans per Day</a> </li>
+               <li><a href="http://localhost:3000/alltransactions">Time Of Trans </a> </li>-->
+               <li><a href="http://localhost:3000/ethBtcTrans2">ETH/BTC </a> </li>
+
+            </div>
+          </div>
+
+        </ul>
+
+
+      </div>
+    </div>
+  </nav>
+
+  </div>
+  </div><!-- end jumbotron-->
+
+{{{ body }}}
+
+<footer class="container-fluid text-center">
+  <div class="footer">
+    <p>Copyright Nowall 2018</p>
+  </div>
+</footer>
+
+</body>
+</html>

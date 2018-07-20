@@ -1,0 +1,42 @@
+<h3> ALERT VIEW (CUSTOMERS WITH RULES BROKEN) </h3>
+<div class="container">
+   <table class="table table-hover table-hover table-responsive">
+      <thead>
+         <tr>
+            <th style='width:22%'>Wallet ID</th>
+            <th style='width:10%'>First Name</th>            
+            <th style='width:6%'>Last Name</th>            
+            <th style='width:7%'>Nationality</th>            
+            <th style='width:20%'>Rules Broken</th>
+            <th style='width:5%'>Status (Read)</th>            
+         </tr>
+      </thead>
+      <tbody>
+         {{#each result_customer}}
+         <tr>
+            <td><a href="http://localhost:3000/wallet_id?id={{wallet_id}}">{{wallet_id}} </a>  </td>
+            <td> {{first_name}} {{middle_name}}</td>            
+            <td> {{last_name}}</td>            
+            <td> {{nationality}}</td>            
+            <td> {{RULES}}</td> 
+            {{#equal customer_status 'black'}} 
+            <td bgcolor="#000000"></td> 
+            {{/equal}}
+			{{#equal customer_status 'red'}} 
+            <td bgcolor="#FF0000"></td> 
+            {{/equal}}
+			{{#equal customer_status 'yellow'}} 
+            <td bgcolor="#FFFF00"></td> 
+            {{/equal}}
+			{{#equal customer_status 'green'}} 
+            <td bgcolor="#008000"></td> 
+            {{/equal}}
+            			
+         </tr>
+         {{/each}}
+      </tbody>
+   </table>
+</div>
+
+
+<br><br><br><br>

@@ -1,0 +1,292 @@
+<h3> ALERT VIEW (CUSTOMERS WITH RULES BROKEN) </h3>
+<div class="container">
+   <table class="table table-hover table-hover table-responsive">
+      <thead>
+         <tr>
+            <th style='width:20%'>Wallet ID</th>
+            <th style='width:10%'>First Name</th>            
+            <th style='width:10%'>Last Name</th>            
+            <th style='width:10%'>Nationality</th>            
+            <th style='width:10%'>Rules Broken</th>
+            <th style='width:10%'>Status</th>            
+         </tr>
+      </thead>
+      <tbody>
+         {{#each result_customer}}
+         <tr>
+            <td><a href="http://localhost:3000/wallet_id?id={{wallet_id}}" target="_blank">{{wallet_id}} </a>  </td>
+            <td> {{first_name}} {{middle_name}}</td>            
+            <td> {{last_name}}</td>            
+            <td> {{name}}</td>            
+            <td> {{RULES}}</td> 
+            {{#equal user_id 15}} 
+            <td bgcolor="#008000"></td> 
+            {{/equal}}
+			{{#notequal user_id 15}} 
+            <td bgcolor="#008090"></td> 
+            {{/notequal}}
+            			
+         </tr>
+         {{/each}}
+      </tbody>
+   </table>
+</div>
+
+<h3> ALERT VIEW (TRANSACTIONS WHERE RULES BROKEN) </h3>
+<div class="container">
+   <table class="table table-hover table-hover table-responsive">
+      <thead>
+         <tr>
+		    <th>Transaction Hash</th>
+			<th style='width:10%'>Transaction Timestamp</th>
+			<th>Amount</th>                        
+            <th>Token</th>
+			<th>USD Amount</th>
+			<th>From Address</th>
+			<th>From Address Wallet ID</th>
+			<th>To Address</th>
+			<th>To Address Wallet ID</th>            
+            <th>Rule broken</th>
+         </tr>
+      </thead>
+      <tbody>
+         {{#each result_rules}}
+         <tr>
+		    <td> <a href="http://localhost:3000/singletransactionqyeryresult?id={{id}}" target="_blank">{{tx_hash}}</a></td>
+			<td> {{moment tx_timestamp "DD / MM / YYYY"}}</td>
+			<td> {{amount}}</td>                        
+            <td> {{token}}</td>
+			<td> {{usd_value}}</td>
+			<td> {{fromAddress}}</td>
+			<td> {{wallet_id}}</td>
+			<td> {{toAddress}}</td>
+			<td> NA</td>            
+            <td> {{rules}}</td>
+         </tr>
+		 {{else}}
+		 <tr>
+            <td> ccc</td>
+            <td> vvv</td>
+            <td> vvvv</td>
+            <td> vvvv</td>
+            <td> vvvv</td>
+            <td> vvvv</td>
+            <td> vvvv</td>
+            <td> vvvv</td>
+            <td> vvvv</td>
+            <td> vvvv</td>
+            <td> vvvv</td>
+            <td> vvvv</td>
+            <td> vvvv</td>
+         </tr>
+         {{/each}}
+      </tbody>
+   </table>
+</div>
+<h3> CUSTOMER PROFILE INFORMATION </h3>
+<div align="center">VALUE OF TRANSACTION SENT </div>
+<div class="container">
+   <table class="table table-hover table-hover table-responsive">      
+      <tbody>
+	  <tr>
+         {{#each result_profile1}}         
+            <td>{{b}}</td>         
+         {{/each}}
+	  </tr>
+	  <tr>
+         {{#each result_profile1}}         
+            <td>{{a}}</td>         
+         {{/each}}
+	  </tr>
+      </tbody>
+   </table>
+</div>
+<div align="center">VOLUME OF TRANSACTION SENT </div>
+<div class="container">
+   <table class="table table-hover table-hover table-responsive">      
+      <tbody>
+	  <tr>
+         {{#each result_profile2}}         
+            <td>{{b}}</td>         
+         {{/each}}
+	  </tr>
+	  <tr>
+         {{#each result_profile2}}         
+            <td>{{a}}</td>         
+         {{/each}}
+	  </tr>
+      </tbody>
+   </table>
+</div>
+<br><br>
+<div align="center">VALUE OF TRANSACTION RECEIVED </div>
+<div class="container">
+   <table class="table table-hover table-hover table-responsive">
+      <thead>
+         <tr>
+            <th>Januuary
+            <th>February</th>
+            <th>March</th>
+            <th>April</th>
+            <th>May</th>
+            <th>June</th>
+            <th>July</th>
+            <th>August</th>
+            <th>September</th>
+            <th>October</th>
+            <th>November</th>
+            <th>December</th>
+            </th>
+         </tr>
+      </thead>
+      <tbody>
+         <tr>
+            <td>xxx</td>
+            <td>xxx</td>
+            <td>xxx</td>
+            <td>xxx</td>
+            <td>xxx</td>
+            <td>xxx</td>
+            <td>xxx</td>
+            <td>xxx</td>
+            <td>xxx</td>
+            <td>xxx</td>
+            <td>xxx</td>
+            <td>xxx</td>
+         </tr>
+      </tbody>
+   </table>
+</div>
+<div align="center">VOLUME OF TRANSACTION RECEIVED </div>
+<div class="container">
+   <table class="table table-hover table-hover table-responsive">
+      <thead>
+         <tr>
+            <th>Januuary
+            <th>February</th>
+            <th>March</th>
+            <th>April</th>
+            <th>May</th>
+            <th>June</th>
+            <th>July</th>
+            <th>August</th>
+            <th>September</th>
+            <th>October</th>
+            <th>November</th>
+            <th>December</th>
+            </th>
+         </tr>
+      </thead>
+      <tbody>
+         <tr>
+            <td>xxx</td>
+            <td>xxx</td>
+            <td>xxx</td>
+            <td>xxx</td>
+            <td>xxx</td>
+            <td>xxx</td>
+            <td>xxx</td>
+            <td>xxx</td>
+            <td>xxx</td>
+            <td>xxx</td>
+            <td>xxx</td>
+            <td>xxx</td>
+         </tr>
+      </tbody>
+   </table>
+</div>
+<br><br>
+<div align="center">TOTAL TRANSACTION VALUE </div>
+<div class="container">
+   <table class="table table-hover table-hover table-responsive">
+      <thead>
+         <tr>
+            <th>Januuary
+            <th>February</th>
+            <th>March</th>
+            <th>April</th>
+            <th>May</th>
+            <th>June</th>
+            <th>July</th>
+            <th>August</th>
+            <th>September</th>
+            <th>October</th>
+            <th>November</th>
+            <th>December</th>
+            </th>
+         </tr>
+      </thead>
+      <tbody>
+         <tr>
+            <td>xxx</td>
+            <td>xxx</td>
+            <td>xxx</td>
+            <td>xxx</td>
+            <td>xxx</td>
+            <td>xxx</td>
+            <td>xxx</td>
+            <td>xxx</td>
+            <td>xxx</td>
+            <td>xxx</td>
+            <td>xxx</td>
+            <td>xxx</td>
+         </tr>
+      </tbody>
+   </table>
+</div>
+<br><br>
+<div align="center">TOTAL TRANSACTION VOLUME </div>
+<div class="container">
+   <table class="table table-hover table-hover table-responsive">
+      <thead>
+         <tr>
+            <th>Januuary
+            <th>February</th>
+            <th>March</th>
+            <th>April</th>
+            <th>May</th>
+            <th>June</th>
+            <th>July</th>
+            <th>August</th>
+            <th>September</th>
+            <th>October</th>
+            <th>November</th>
+            <th>December</th>
+            </th>
+         </tr>
+      </thead>
+      <tbody>
+         <tr>
+            <td>xxx</td>
+            <td>xxx</td>
+            <td>xxx</td>
+            <td>xxx</td>
+            <td>xxx</td>
+            <td>xxx</td>
+            <td>xxx</td>
+            <td>xxx</td>
+            <td>xxx</td>
+            <td>xxx</td>
+            <td>xxx</td>
+            <td>xxx</td>
+         </tr>
+      </tbody>
+   </table>
+</div>
+<div class="container">
+   <table class="table table-hover table-hover table-responsive">      
+      <tbody>
+	  <tr>
+         {{#each result_profile1}}         
+            <td>{{b}}</td>         
+         {{/each}}
+	  </tr>
+	  <tr>
+         {{#each result_profile1}}         
+            <td>{{a}}</td>         
+         {{/each}}
+	  </tr>
+      </tbody>
+   </table>
+</div>
+<br><br><br><br>

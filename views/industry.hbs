@@ -1,0 +1,55 @@
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+<script>
+window.onload = function () {
+
+var chart = new CanvasJS.Chart("chartContainer", {
+exportEnabled: true,
+animationEnabled: true,
+theme: "light1", // "light1", "light2", "dark1", "dark2"
+title:{
+text: "Industry Type"
+},
+axisY: {
+title: "Number Of Users"
+    //interval: 100
+},
+  dataPointMaxWidth : 50,
+
+data: [{
+type: "column",
+showInLegend: true,
+legendMarkerColor: "grey",
+legendText: "Industry Name",
+    /*showInLegend: true,
+    legendText: "Gold",
+       color: "pink",*/
+
+    dataPoints: [
+      {{#each users}}
+      { y:{{NumberOf}},  label:"{{IndustryName}}" },
+      {{/each}}
+]
+
+}]
+});
+chart.render();
+
+}
+</script>
+
+
+
+</head>
+<body>
+<center><div id="chartContainer" style="height: 300px; width: 100%; "></div></center>
+<br><br><br><br><br>
+
+<!--<br>
+<div id="chartContainer1" style="height: 300px; width: 100%; "></div><br><br><br><br><br>-->
+
+</body>
+</html>

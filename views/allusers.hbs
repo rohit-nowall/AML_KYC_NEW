@@ -1,0 +1,187 @@
+<h3> {{{message}}} </h3>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<div align="center"><a href="#" class="export">Export All users data into Excel / csv</a></div>
+
+<div class="container">
+<div style="display:none" id="dvData">
+  <table class="table table-hover table-hover table-responsive">
+    <thead>
+      <tr>
+        <th>User ID</th>
+        <th>First Name</th>
+        <th>Middle Name</th>
+        <th>Last Name</th>
+        <th>Date of Birth</th>
+        <th>Nationality</th>
+        <th>Country</th>
+        <th>Date Created</th>
+        <th>gender</th>
+        <th>Address Line 1</th>
+        <th>City</th>
+        <th>State</th>
+        <th>Postal Code</th>
+        <th>Document Type</th>
+        <th>Document Number</th>
+        <th>KYC Flag</th>
+        <th>Odin Holding</th>
+        <th>Odin Points</th>
+        <th>Work Address</th>
+        <th>Work Type</th>
+      <!--  <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>
+        <th></th>-->
+
+      </tr>
+    </thead>
+
+    <tbody>
+	<tr>
+        <td>User ID</td>
+        <td>First Name</td>
+        <td>Middle Name</td>
+        <td>Last Name</td>
+        <td>Date of Birtd</td>
+        <td>Nationality</td>
+        <td>Country</td>
+        <td>Date Created</td>
+        <td>gender</td>
+        <td>Address Line 1</td>
+        <td>City</td>
+        <td>State</td>
+        <td>Postal Code</td>
+        <td>Document Type</td>
+        <td>Document Number</td>
+        <td>KYC Flag</td>
+        <td>Odin Holding</td>
+        <td>Odin Points</td>
+        <td>Work Address</td>
+        <td>Work Type</td>
+		</tr>
+      {{#each users}}  
+      <tr>
+        <td><a href="http://localhost:3000/userid?id={{users.user_id}}">{{user_id}} </a>  </td>
+        <td> {{first_name}}</td>
+        <td> {{middle_name}}</td>
+        <td> {{last_name}}</td>
+        <td> {{moment date_of_birth "DD / MM / YYYY"}}</td>
+        <td> {{nationality1}}</td>
+        <td> {{country1}}</td>
+        <td> {{moment created_at "DD / MM / YYYY"}}</td>
+        <td> {{gender}}</td>
+        <td> {{address_line_1}}</td>
+        <td> {{city}}</td>
+        <td> {{state}}</td>
+        <td> {{postal_code}}</td>
+        <td> {{document_type}}</td>
+        <td> {{document_number}}</td>
+        <td> {{kyc_flag}}</td>
+        <td> {{odin_holding}}</td>
+        <td> {{odin_points}}</td>
+        <td> {{work_address}}</td>
+        <td> {{work_type}}</td>
+
+      </tr>
+      {{/each}}
+    </tbody>
+
+  </table>
+</div>
+<script>
+$(document).ready(function() {
+
+  function exportTableToCSV($table, filename) {
+
+    var $rows = $table.find('tr:has(td)'),
+
+      // Temporary delimiter characters unlikely to be typed by keyboard
+      // This is to avoid accidentally splitting the actual contents
+      tmpColDelim = String.fromCharCode(11), // vertical tab character
+      tmpRowDelim = String.fromCharCode(0), // null character
+
+      // actual delimiter characters for CSV format
+      colDelim = '","',
+      rowDelim = '"\r\n"',
+
+      // Grab text from table into CSV formatted string
+      csv = '"' + $rows.map(function(i, row) {
+        var $row = $(row),
+          $cols = $row.find('td');
+
+        return $cols.map(function(j, col) {
+          var $col = $(col),
+            text = $col.text();
+
+          return text.replace(/"/g, '""'); // escape double quotes
+
+        }).get().join(tmpColDelim);
+
+      }).get().join(tmpRowDelim)
+      .split(tmpRowDelim).join(rowDelim)
+      .split(tmpColDelim).join(colDelim) + '"';
+
+    // Deliberate 'false', see comment below
+    if (false && window.navigator.msSaveBlob) {
+
+      var blob = new Blob([decodeURIComponent(csv)], {
+        type: 'text/csv;charset=utf8'
+      });
+
+      // Crashes in IE 10, IE 11 and Microsoft Edge
+      // See MS Edge Issue #10396033
+      // Hence, the deliberate 'false'
+      // This is here just for completeness
+      // Remove the 'false' at your own risk
+      window.navigator.msSaveBlob(blob, filename);
+
+    } else if (window.Blob && window.URL) {
+      // HTML5 Blob        
+      var blob = new Blob([csv], {
+        type: 'text/csv;charset=utf-8'
+      });
+      var csvUrl = URL.createObjectURL(blob);
+
+      $(this)
+        .attr({
+          'download': filename,
+          'href': csvUrl
+        });
+    } else {
+      // Data URI
+      var csvData = 'data:application/csv;charset=utf-8,' + encodeURIComponent(csv);
+
+      $(this)
+        .attr({
+          'download': filename,
+          'href': csvData,
+          'target': '_blank'
+        });
+    }
+  }
+
+  // This must be a hyperlink
+  $(".export").on('click', function(event) {
+    // CSV
+    var args = [$('#dvData>table'), 'all_users.csv'];
+
+    exportTableToCSV.apply(this, args);
+
+    // If CSV, don't do event.preventDefault() or return false
+    // We actually need this to be a typical hyperlink
+  });
+});
+</script>

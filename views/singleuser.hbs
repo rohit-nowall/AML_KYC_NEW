@@ -1,0 +1,387 @@
+
+  <h3>{{message}}</h3>
+
+  <div class="row">
+    <div class="col-xs-6">
+      <p>
+        <b>PERSONAL</b><br>
+        {{#each user_details}}
+          FIRST NAME :- {{first_name}} <br>
+          LAST NAME :- {{last_name}} <br>
+          DATE OF BIRTH :- {{moment date_of_birth "DD-MM-YYYY"}} <br>
+          NATIONALITY :- {{anationality}} <br>
+          GENDER :- {{gender}} <br>
+          INDUSTRY :- {{industry1}} <br>
+          OCCUPATION :- {{work1}} <br>
+          TAX ID :- {{tax_id}} <br>
+		  WALLET ID :- {{wallet_id}} <br>
+        {{/each}}
+      </p>
+    </div>
+
+    <div class="col-xs-6">
+      <p><b>ADDRESS</b><br>
+        {{#each user_details}}
+          Address 1 :- {{address_line_1}} <br>
+          Address 2 :- {{address_line_2}} <br>
+          City :- {{city}} <br>
+          State :- {{state}} <br>
+          Postal Code :- {{postal_code}} <br>
+          Country :- {{acountry}} <br>
+          Contact number :- {{contact_number}} <br>
+          Email Address :- NA <br>
+          Utility Bill :- NA <br><br>
+        {{/each}}
+      </p>
+    </div>
+  </div>
+
+
+  <div class="row">
+    <div class="col-xs-6">
+      <p>
+        <b>DOCUMENT</b><br>
+        {{#each user_details}}
+        ID TYPE :- {{id1}} <br>
+        ID NUMBER :- {{document_number}} <br>
+        ID EXPIRY :- {{moment document_expiry "DD-MM-YYYY"}} <br>        
+        {{/each}}
+      </p>
+    </div>
+
+    <div class="col-xs-6">
+      <p>
+        <b>FINANCE</b><br>
+        {{#each user_details}}
+        Purpose of Action :- {{pa1}} <br>
+        Planned Investment Amount :- {{pi1}} <br>
+        {{/each}}
+      </p>
+    </div>
+  </div>
+   <div align="center">
+  <table style="width:50%">
+  <tr>
+    <th>Passport Photo</th>
+    <th>Selfie Photo</th>    
+  </tr>
+  <tr>{{#each user_details}}
+    <td><img src="{{ img_front }}" alt="{{first_name}}" style="width:200px;height:200px;"></td>
+    <td><img src="{{ img_selfie }}" alt="{{first_name}}" style="width:200px;height:200px;"></td>
+   {{/each}}
+  </tr>  
+</table>
+</div>
+  
+  <h3>RULES SECTION - BASIC VIEW</h3>  
+	<div class="container">
+   <table class="table table-hover table-hover table-responsive">      
+      <tbody>
+         {{#each basic_rules}}
+         <tr>
+            <td>Rules Broken  </td>
+            <td> {{rules}}</td>
+		 </tr>
+         {{/each}}
+      </tbody>
+   </table>   
+</div>
+
+<h3>RULES SECTION - ADVANCED VIEW</h3>  
+	<div class="container">
+   <table class="table table-hover table-hover table-responsive">
+      <thead>
+         <tr>
+		    <th>Transaction Hash</th>
+			<th style='width:10%'>Transaction Timestamp</th>
+			<th>Token Amount</th>                        
+            <th>Token</th>
+			<th>USD Amount</th>						           
+            <th>Rule broken</th>
+			<th>from address</th>
+			<th>to address</th>
+         </tr>
+      </thead>
+      <tbody>
+         {{#each advanced_rules}}
+         <tr>
+		    <td> <a href="http://localhost:3000/singletransactionqueryresult?id={{id}}">{{tx_hash}}</a></td>
+			<td> {{moment tx_timestamp "DD-MM-YYYY"}}</td>
+			<td> {{amount_token}}</td>                        
+            <td> {{token}}</td>
+			<td> $ {{amount_usd}}</td>			           
+            <td> {{rules}}</td>
+			{{#equal fromAddress wallet_id}} 
+            <td ><a href="http://localhost:3000/wallet_id?id={{wallet_id}}">{{fromAddress}} </a></td> 
+            {{/equal}}
+			{{#notequal fromAddress wallet_id}} 
+            <td >{{fromAddress}}</td> 
+            {{/notequal}}
+			{{#equal toAddress wallet_id}} 
+            <td ><a href="http://localhost:3000/wallet_id?id={{wallet_id}}">{{toAddress}} </a></td> 
+            {{/equal}}
+			{{#notequal toAddress wallet_id}} 
+            <td >{{toAddress}}</td> 
+            {{/notequal}}
+         </tr>		
+         {{/each}}
+      </tbody>
+   </table>
+   <br><br><br><br><br><br><br>
+</div>
+
+<h3> CUSTOMER PROFILE INFORMATION </h3>
+<div align="center">VALUE OF TRANSACTIONS SENT ($) </div>
+<div class="container">
+   <table class="table table-hover table-hover table-responsive">      
+      <tbody>
+	  <tr>
+         {{#each value_transaction_sent}}         
+            <td>{{month}}</td>         
+         {{/each}}
+	  </tr>
+	  <tr>
+         {{#each value_transaction_sent}}         
+            <td>{{amount}}</td>         
+         {{/each}}
+	  </tr>
+      </tbody>
+   </table>
+</div>
+<div align="center">VOLUME OF TRANSACTIONS SENT</div>
+<div class="container">
+   <table class="table table-hover table-hover table-responsive">      
+      <tbody>
+	  <tr>
+         {{#each volume_transaction_sent}}         
+            <td>{{month}}</td>         
+         {{/each}}
+	  </tr>
+	  <tr>
+         {{#each volume_transaction_sent}}         
+            <td>{{amount}}</td>         
+         {{/each}}
+	  </tr>
+      </tbody>
+   </table>
+</div>
+<br><br>
+<div align="center">VALUE OF TRANSACTIONS RECEIVED ($)  </div>
+<div class="container">
+   <table class="table table-hover table-hover table-responsive">      
+      <tbody>
+	  <tr>
+         {{#each value_transaction_received}}         
+            <td>{{month}}</td>         
+         {{/each}}
+	  </tr>
+	  <tr>
+         {{#each value_transaction_received}}         
+            <td>{{amount}}</td>         
+         {{/each}}
+	  </tr>
+      </tbody>
+   </table>
+</div>
+<div align="center">VOLUME OF TRANSACTIONS RECEIVED</div>
+<div class="container">
+   <table class="table table-hover table-hover table-responsive">      
+      <tbody>
+	  <tr>
+         {{#each volume_transaction_received}}         
+            <td>{{month}}</td>         
+         {{/each}}
+	  </tr>
+	  <tr>
+         {{#each volume_transaction_received}}         
+            <td>{{amount}}</td>         
+         {{/each}}
+	  </tr>
+      </tbody>
+   </table>
+</div>
+<br><br>
+<div align="center">VALUE OF TOTAL TRANSACTIONS ($) </div>
+<div class="container">
+   <table class="table table-hover table-hover table-responsive">      
+      <tbody>
+	  <tr>
+         {{#each value_transaction_total}}         
+            <td>{{month}}</td>         
+         {{/each}}
+	  </tr>
+	  <tr>
+         {{#each value_transaction_total}}         
+            <td>{{amount}}</td>         
+         {{/each}}
+	  </tr>
+      </tbody>
+   </table>
+</div>
+<div align="center">VOLUME OF TOTAL TRANSACTIONS</div>
+<div class="container">
+   <table class="table table-hover table-hover table-responsive">      
+      <tbody>
+	  <tr>
+         {{#each volume_transaction_total}}         
+            <td>{{month}}</td>         
+         {{/each}}
+	  </tr>
+	  <tr>
+         {{#each volume_transaction_total}}         
+            <td>{{amount}}</td>         
+         {{/each}}
+	  </tr>
+      </tbody>
+   </table>
+</div>
+<br><br>
+<h3> PEER PROFILE INFORMATION </h3>
+<div align="center">VALUE OF TRANSACTIONS SENT ($)  </div>
+<div class="container">
+   <table class="table table-hover table-hover table-responsive">      
+      <tbody>
+	  <tr>
+         {{#each value_transaction_sent_peer}}         
+            <td>{{month}}</td>         
+         {{/each}}
+	  </tr>
+	  <tr>
+         {{#each value_transaction_sent_peer}}         
+            <td>{{amount}}</td>         
+         {{/each}}
+	  </tr>
+      </tbody>
+   </table>
+</div>
+<div align="center">VOLUME OF TRANSACTIONS SENT</div>
+<div class="container">
+   <table class="table table-hover table-hover table-responsive">      
+      <tbody>
+	  <tr>
+         {{#each volume_transaction_sent_peer}}         
+            <td>{{month}}</td>         
+         {{/each}}
+	  </tr>
+	  <tr>
+         {{#each volume_transaction_sent_peer}}         
+            <td>{{amount}}</td>         
+         {{/each}}
+	  </tr>
+      </tbody>
+   </table>
+</div>
+<br><br>
+<div align="center">VALUE OF TRANSACTIONS RECEIVED ($)  </div>
+<div class="container">
+   <table class="table table-hover table-hover table-responsive">      
+      <tbody>
+	  <tr>
+         {{#each value_transaction_received_peer}}         
+            <td>{{month}}</td>         
+         {{/each}}
+	  </tr>
+	  <tr>
+         {{#each value_transaction_received_peer}}         
+            <td>{{amount}}</td>         
+         {{/each}}
+	  </tr>
+      </tbody>
+   </table>
+</div>
+<div align="center">VOLUME OF TRANSACTIONS RECEIVED</div>
+<div class="container">
+   <table class="table table-hover table-hover table-responsive">      
+      <tbody>
+	  <tr>
+         {{#each volume_transaction_received_peer}}         
+            <td>{{month}}</td>         
+         {{/each}}
+	  </tr>
+	  <tr>
+         {{#each volume_transaction_received_peer}}         
+            <td>{{amount}}</td>         
+         {{/each}}
+	  </tr>
+      </tbody>
+   </table>
+</div>
+<br><br>
+<div align="center">VALUE OF TOTAL TRANSACTIONS ($) </div>
+<div class="container">
+   <table class="table table-hover table-hover table-responsive">      
+      <tbody>
+	  <tr>
+         {{#each value_transaction_total_peer}}         
+            <td>{{month}}</td>         
+         {{/each}}
+	  </tr>
+	  <tr>
+         {{#each value_transaction_total_peer}}         
+            <td>{{amount}}</td>         
+         {{/each}}
+	  </tr>
+      </tbody>
+   </table>
+</div>
+<div align="center">VOLUME OF TOTAL TRANSACTIONS</div>
+<div class="container">
+   <table class="table table-hover table-hover table-responsive">      
+      <tbody>
+	  <tr>
+         {{#each volume_transaction_total_peer}}         
+            <td>{{month}}</td>         
+         {{/each}}
+	  </tr>
+	  <tr>
+         {{#each volume_transaction_total_peer}}         
+            <td>{{amount}}</td>         
+         {{/each}}
+	  </tr>
+      </tbody>
+   </table>
+</div>
+ <div class="container">
+ <table class="table table-hover table-hover table-responsive">
+ <tbody>        
+         <tr>
+            <td><label>Customer Status</label></a>  </td>            
+            {{#equal not_blocked 'green'}} 
+            <td bgcolor="#008000"></td> 
+            {{/equal}}
+			{{#equal not_blocked "black"}} 
+            <td bgcolor="#000000"></td> 
+            {{/equal}} 
+            {{#equal not_blocked "yellow"}} 
+            <td bgcolor="#FFFF00"></td> 
+            {{/equal}}
+            {{#equal not_blocked "red"}} 
+            <td bgcolor="#FF0000"></td> 
+            {{/equal}}			
+         </tr>
+         
+      </tbody> 
+ </table>
+ </div>
+<br>   
+<div class="singleform">
+  <form name="customer block" method="get" action="customer_block">  
+    <div class="input"> <span>         
+	<label>Please select the operation</label></span><br>
+     
+    <input type="radio" name="customer_block" value="black" {{#equal not_blocked "green"}}checked="checked"  {{/equal}}> BLOCK<br>
+    <input type="radio" name="customer_block" value="green" {{#equal not_blocked "black"}}checked="checked"  {{/equal}}> CLEARED<br>
+	
+	{{#each user_details}}
+    <input type="hidden" name="user_id" value={{user_id}}> 
+    <input type="hidden" name="wallet_id" value={{wallet_id}}>
+   {{/each}}	
+    <br>
+	
+	<div class="actions">
+<input type="submit", value="submit">
+</div>
+</div>	
+  </form>
+</div>
+<br><br><br><br>

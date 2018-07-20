@@ -1,0 +1,21 @@
+<p> {{vaID}} </p>
+
+<p><h1> {{title}} <h1> </p>
+<div class="details">
+  <p> {{vaMSG}} </p>
+</div>
+
+<div class="singleform">
+  <form name="rule-one", method="get" action="Vqueryresult">  
+    <div class="input"> <span><label>Please enter the transaction value</label></span><br>
+    </div>	 
+    <input type="text"  name="transactionvalue" value={{vaConfig}}>	
+    <input type="hidden", name="ruleNo" value={{ruleNo}}>
+    <input type="hidden", name="vaMSG" value={{vaMSG}}>
+    <br>
+    <div class="actions">
+      <input type="submit", value="submit">
+    </div>
+
+  </form>
+</div>

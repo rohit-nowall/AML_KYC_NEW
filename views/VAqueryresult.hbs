@@ -1,0 +1,36 @@
+<p> <h1>{{vaMSG}} </h1></p>
+
+<p> <h1>Detailed View </h1></p>
+<div class="container">
+
+  <table class="table table-hover table-hover table-responsive">
+    <thead>
+      <tr>        
+        <th>Transaction Hash</th>
+		<th>Transaction Timestamp</th>
+        <th>Amount</th>        
+        <th>Token</th>
+		<th>USD Amount</th>
+		<th>From Address</th>
+        <th>To Address</th>
+		<th>User ID</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each users}}
+      <tr>        
+        <td> {{tx_hash}}</td>
+		<td> {{moment tx_timestamp "DD / MM / YYYY"}}</td> 
+        <td> {{amount}}</td>        
+        <td> {{token}}</td>
+		<td> na</td>
+		<td> {{fromAddress}}</td>
+        <td> {{toAddress}}</td>
+		<td> {{user_id}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+
+  </table>
+</div>
+<br><br><br><br><br>

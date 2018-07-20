@@ -1,0 +1,33 @@
+<h1></h1>
+  <h3>{{message}}</h3>
+  
+  <div class="row">
+    <div class="col-xs-6">
+      <p>
+        <b></b><br>
+        {{#each transaction_details}}
+          <label>Tx_hash :- </label> {{tx_hash}}<br>
+          <label>Amount :-  </label> {{amount}}<br>
+          <label>  Odin Token Equivalent :- </label> {{odin_token_equivalent}} <br>
+          <label>  Token :-  </label> {{token}}<br>
+          <label>  To Address :-  </label> {{toAddress}}<br>
+          <label>Transaction timestamp :-  </label> {{moment tx_timestamp "DD / MM / YYYY"}}<br> 
+          <label>  Status :-  </label> {{status}}<br>
+        {{/each}}
+      </p>
+    </div>
+
+    <div class="col-xs-6">
+      <p><b></b><br>
+        {{#each transaction_details}}
+         <label>Created_at :-  </label>{{moment created_at "DD / MM / YYYY"}}<br>
+        <label>User id :-  </label>{{user_id}}<br>
+        <label>From Address :-  </label>{{fromAddress}}<br>
+        <label>Status Msg :-  </label>{{status_msg}}<br>
+        <label>Is db Token :-  </label>{{is_db_token}}<br>
+        <label>Is Premium :-  </label>{{is_premium}}<br>
+        {{/each}}
+      </p>
+    </div>
+  </div>
+  
